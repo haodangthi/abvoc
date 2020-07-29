@@ -1,25 +1,27 @@
+/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
-import logo from './logo.svg';
+
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
+import AllDecks from './components/AllDecks';
+import DeckPage from './components/DeckPage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+
+      <div className="App">
+        <Switch>
+          <Route path="/" component={AllDecks} exact />
+          <Route path="/deck/:id" component={DeckPage} exact />
+          {/* <Route path="/chart" component={ChartPage} exact /> */}
+          {/* <Route component={NotFoundPage} /> */}
+
+        </Switch>
+
+      </div>
+
+    </Router>
   );
 }
 
